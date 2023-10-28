@@ -96,6 +96,7 @@ const getUser = async (req: Request, res: Response) => {
 
 const updateUser = async (req: Request, res: Response) => {
   const form: User = req.body
+  console.log('first' + form)
   const { password, address, date_of_birth, name, phone, roles, avatar } = form
   const user = omitBy(
     {
@@ -185,6 +186,7 @@ const updateMe = async (req: Request, res: Response) => {
 
 const deleteUser = async (req: Request, res: Response) => {
   const user_id = req.params.user_id
+  console.log('user_id' + user_id)
   const userDB = await UserModel.findByIdAndDelete(user_id).lean()
   if (userDB) {
     return responseSuccess(res, { message: 'Xóa thành công' })

@@ -1,5 +1,4 @@
 import adminUserRouter from './admin-user.route'
-import adminAuthRouter from './admin-auth.route'
 import adminCategoryRouter from './admin-category.route'
 import adminProductRouter from './admin-product.route'
 
@@ -17,10 +16,6 @@ const adminRoutes = {
     {
       path: 'categories',
       route: adminCategoryRouter,
-    },
-    {
-      path: '',
-      route: adminAuthRouter,
     },
   ],
 }

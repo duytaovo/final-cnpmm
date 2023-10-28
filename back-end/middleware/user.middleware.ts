@@ -29,17 +29,17 @@ const addUserRules = () => {
       .withMessage('SDT không được lớn hơn 20 kí tự'),
     body('roles')
       .exists({ checkFalsy: true })
-      .withMessage('Phân quyền không được để trống')
-      .custom((value) => {
-        if (!Array.isArray(value)) {
-          return false
-        }
-        if (value.some((item) => typeof item !== 'string')) {
-          return false
-        }
-        return true
-      })
-      .withMessage('Role không đúng định dạng'),
+      .withMessage('Phân quyền không được để trống'),
+    // .custom((value) => {
+    //   if (!Array.isArray(value)) {
+    //     return false
+    //   }
+    //   if (value.some((item) => typeof item !== 'string')) {
+    //     return false
+    //   }
+    //   return true
+    // })
+    // .withMessage('Role không đúng định dạng'),
     body('avatar')
       .if((value: any) => value !== undefined)
       .isString()
@@ -69,18 +69,18 @@ const updateUserRules = () => {
       .if((value: any) => value !== undefined)
       .isLength({ max: 20 })
       .withMessage('SDT phải ít hơn 20 kí tự'),
-    body('roles')
-      .if((value: any) => value !== undefined)
-      .custom((value) => {
-        if (!Array.isArray(value)) {
-          return false
-        }
-        if (value.some((item) => typeof item !== 'string')) {
-          return false
-        }
-        return true
-      })
-      .withMessage('Role không đúng định dạng'),
+    // body('roles')
+    //   .if((value: any) => value !== undefined)
+    //   .custom((value) => {
+    //     if (!Array.isArray(value)) {
+    //       return false
+    //     }
+    //     if (value.some((item) => typeof item !== 'string')) {
+    //       return false
+    //     }
+    //     return true
+    //   })
+    //   .withMessage('Role không đúng định dạng'),
     body('avatar')
       .if((value: any) => value !== undefined)
       .isString()

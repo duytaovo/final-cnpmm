@@ -78,7 +78,9 @@ const verifyRefreshToken = async (
 }
 
 const verifyAdmin = async (req: Request, res: Response, next: NextFunction) => {
+  console.log(req.jwtDecoded)
   const userDB: User = await UserModel.findById(req.jwtDecoded.id).lean()
+  console.log(userDB)
   if (userDB.roles.includes(ROLE.ADMIN)) {
     return next()
   }

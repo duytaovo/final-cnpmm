@@ -21,7 +21,7 @@ adminUserRouter.post(
   wrapAsync(userController.addUser)
 )
 adminUserRouter.put(
-  '/:user_id',
+  '/update/:user_id',
   authMiddleware.verifyAccessToken,
   authMiddleware.verifyAdmin,
   helpersMiddleware.idRule('user_id'),
@@ -31,12 +31,12 @@ adminUserRouter.put(
   wrapAsync(userController.updateUser)
 )
 adminUserRouter.get(
-  '/:user_id',
+  '/detail/:user_id',
   authMiddleware.verifyAccessToken,
   authMiddleware.verifyAdmin,
   helpersMiddleware.idRule('user_id'),
   helpersMiddleware.idValidator,
-  wrapAsync(userController.deleteUser)
+  wrapAsync(userController.getUser)
 )
 adminUserRouter.delete(
   '/delete/:user_id',
